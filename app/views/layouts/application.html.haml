@@ -1,0 +1,14 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Events6
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+  %body.m-0
+    .container-fluid.pl-0.pr-0.pb-4.mb-4{style: 'overflow: hidden;'}
+      = render 'shared/header'
+      = render 'shared/alerts'
+      = yield

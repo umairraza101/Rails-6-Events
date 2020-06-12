@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  port: 5432
+  pool: 30
+  database: events
+  username: root
+  password: root
+  host: localhost
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+  database: events_test
+
+production:
+  <<: *default
+  database: events_prod

@@ -1,0 +1,13 @@
+.row.public_event
+  .col-12.col-sm-12
+    .event_info
+      %h6.text-muted= @event.title.capitalize
+      .actions.mb-2
+        = link_to 'Go Back', root_path, class: 'btn btn-sm btn-dark'
+    .public_event-img
+      =image_tag(@event.photo_url,class: "event-card-image")
+      %small.text-muted= "From:  #{"#{@event.start_date.strftime('%m/%d/%Y')} #{@event.start_date.strftime('at %I:%M%p')}"}"
+      %small.text-muted= "To:  #{"#{@event.end_date.strftime('%m/%d/%Y')} #{@event.end_date.strftime('at %I:%M%p')}"}"
+      %small.text-muted.float-right= "Created By: #{@event.user.full_name}"
+    .event_description.mt-4
+      %p= @event.description.html_safe

@@ -1,0 +1,49 @@
+<div class='w-50 m-auto pt-4'>
+  <%= form_with(model: event, local: true, multipart: true) do |form| %>
+    <% if event.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+        <ul>
+          <% event.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :title %>
+      <%= form.text_field :title, class: 'form-control' %>
+    </div>
+    <div class="field">
+      <%= form.label :photo %>
+      <%= form.file_field :photo, class: 'form-control p-1' %>
+    </div>
+    <div class="datetimerange" style="position: relative;">
+      <div class="field">
+        <%= form.label :start_date, class: 'd-block' %>
+        <%= form.text_field :start_date, class: 'form-control p_date', input_html: {data: {date_options: {defaultDate: '2012/12/25'}}} %>
+      </div>
+
+      <div class="field">
+        <%= form.label :end_date, class: 'd-block' %>
+        <%= form.text_field :end_date, class: 'form-control p_date', input_html: {data: {date_options: {defaultDate: '2012/12/25'}}} %>
+      </div>
+    </div>
+    <div class="field">
+      <%= form.label :description %>
+      <%= form.rich_text_area :description %>
+    </div>
+
+    <div class="field">
+      <%= form.label :status, class: '' %>
+      <%= form.select :status, Event.statuses.keys, {}, class: 'form-control' %>
+    </div>
+
+    <div class="actions mt-2">
+      <%= form.submit class: 'btn btn-dark float-right btn-sm' %>
+      <%= link_to 'Go Back', events_path, class: 'btn  btn-dark btn-sm float-right mr-1' %>
+    </div>
+  <% end %>
+</div>

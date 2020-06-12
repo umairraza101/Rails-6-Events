@@ -1,0 +1,22 @@
+%nav.navbar.navbar-expand-lg.avbar-dark.bg-dark
+  %a.navbar-brand{:href => "/"} Events
+  %button.navbar-toggler{'aria-controls' => 'navbarText', 'aria-expanded' => 'false', 'aria-label' => 'Toggle navigation', 'data-target' => '#navbarText', 'data-toggle' => 'collapse', :type => 'button'}
+    %span.navbar-toggler-icon
+  #navbarText.collapse.navbar-collapse{style: 'justify-content: flex-end;'}
+    - if current_user.present?
+      %ul.navbar-nav.mr-auto
+        %li.nav-item.active
+          %a.nav-link{:href => events_path }
+            Home
+            %span.sr-only (current)
+    %ul.navbar-nav
+      - unless current_user
+        %li.nav-item.active.float-right
+          %a.nav-link{:href => new_user_session_path }
+            Login
+        %li.nav-item.active.float-right
+          %a.nav-link{:href => new_user_registration_path }
+            Sign Up
+      - else
+        %li.nav-item.active.float-right
+          = link_to "Sign Out", destroy_user_session_path, method: :delete, class: 'nav-link'

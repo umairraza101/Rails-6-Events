@@ -1,0 +1,27 @@
+
+- if flash[:success]
+  .alert.alert-success.alert-dismissible.fade.show{:role => "alert"}
+    = flash[:success]
+    %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+      %span{"aria-hidden" => "true"} ×
+- if flash[:notice]
+  .alert.alert-success.alert-dismissible.fade.show{:role => "alert"}
+    = flash[:notice]
+    %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+      %span{"aria-hidden" => "true"} ×
+- if flash[:alert]
+  .alert.alert-success.alert-dismissible.fade.show{:role => "alert"}
+    = flash[:alert]
+    %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+      %span{"aria-hidden" => "true"} ×
+- if flash[:info]
+  .alert.alert-info.alert-dismissible.fade.show{:role => "alert"}
+    = flash[:info]
+    %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+      %span{"aria-hidden" => "true"} ×
+- if flash[:errors]
+  - flash[:errors].each do |err|
+    .alert.alert-danger.alert-dismissible.fade.show{:role => "alert"}
+      = err
+      %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+        %span{"aria-hidden" => "true"} ×

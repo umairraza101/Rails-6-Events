@@ -1,0 +1,9 @@
+<div class='w-50 m-auto pt-4'>
+  <%= form_tag(send_invitation_event_path(@event), method: :post, remote: false) do |form| %>
+    <div class="field">
+      <%= label_tag :emails %>
+      <%= text_area_tag :emails,nil, class: 'form-control', placeholder: "Comma separated email(s) list" %>
+    </div>
+    <%= submit_tag :send_invitations, class: "btn btn-secondary mt-2" %>
+  <% end %>
+</div>

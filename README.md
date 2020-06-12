@@ -1,0 +1,2 @@
+# events_rails6
+

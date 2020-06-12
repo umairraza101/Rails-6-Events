@@ -1,0 +1,9 @@
+.alert{
+  width: 280px;
+  margin-top: 1%;
+  left: 79%;
+  z-index: 1;
+  @media screen and (max-width: 569px){
+    left: 71%;
+  }
+}
